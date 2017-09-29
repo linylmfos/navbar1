@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>导航条</title>
+		<style type="text/css" media="screen">
+			*{padding: 0;margin: 0;}
+			ul{list-style: none;}
+			a{text-decoration: none;}
+			body{ background: #eee; }
+			.header{ width: 100%;min-width: 1000px;height: 70px;background: #fff; padding: 0 30px; border-sizing: border-box;box-shadow: 0 3px 3px rgba(0,0,0,0.1);}
+			.header .logo{float: left; margin-top: 10px;}
+			.header .logo img{height: 50px;}
+			.header .nav{float: right;}
+			.header .nav li{float: left;position: relative;}
+			.header .nav li>a { color: #000; display: block;line-height: 70px;padding: 0 25px;}
+			.header .nav li.last{margin-right: 30px;}
+			.header .nav .down{ position: absolute;top:70px; left:0; padding-left: 25px; padding-top: 10px;	 display: none;z-index: 5}
+			.header .nav .down a{display: block; line-height: 30px; color: #666;}
+			.header .hd_bg{width: 100%; position: absolute;top:70px;height: 100px;background: rgba(0,204,153,0.95); left:0; z-index: 4}
+		</style>
+		<script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.js"></script>
+		<script>
+			$(function(){
+				$(".header .nav li").hover(function(){
+					var h = $(this).find(".down").outerHeight();
+					$(this).find(".down").slideDown();
+					//console.log($(this));
+					$(".hd_bg").stop().animate({height:h})
+
+				}, function(){
+					$(".hd_bg").stop().animate({height:0})
+					$(this).find(".down").slideUp();
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<a href="#" class="logo"><img src="img/logo.png" alt=""></a>
+			<ul class="nav">
+				<li><a href="#">首页</a></li>
+				<li>
+					<a href="#">学院概况</a>
+					<div class="down">
+						<a href="#">科系设置</a>
+						<a href="#">专业设计</a>
+						<a href="#">科研机构</a>
+						<a href="#">选课系统</a>
+					</div>
+				</li>
+				
+				<li>
+					<a href="#">就业指导</a>
+					<div class="down">
+						<a href="#">自动化学院</a>
+						<a href="#">水利学院</a>
+						<a href="#">材料学院</a>
+					</div>
+				</li>
+				<li>
+					<a href="bbs.html">社团活动</a>
+					<div class="down">
+						<a href="#">学生会</a>
+						<a href="#">宿管会</a>
+						<a href="#">天地会</a>
+						<a href="#">环保协会</a>
+					</div>
+				</li>
+				<li class="last">
+					<a href="#">社团+</a>
+					<div class="down">
+						<a href="#">校企合作</a>
+						<a href="#">联合培养</a>
+					</div>
+				</li>
+			</ul>
+			<div class="hd_bg"></div>
+		</div>
+	</body>
+</html>
